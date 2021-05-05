@@ -1,0 +1,50 @@
+.content {
+    width: 90%;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.content > p {
+    margin: 30px 0;
+    font-size: 24px;
+    font-weight: 600;
+
+}
+
+.formGroup .label {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 18px;
+    
+}
+
+.formGroup input {
+    width: 400px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #848282;
+}
+
+.formGroup textarea {
+    /* width: 615px; */
+    height: 165px;
+    width: 100%;
+    max-width: 420px;
+    padding: 10px;
+    line-height: 1px;
+}
+
+.formGroup input[type="submit"] {
+    width: 100%;
+    max-width: 438px; 
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background: rgb(21, 167, 21);
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.formGroup input[type="submit"]:hover{
+    background: rgb(20, 161, 20);
+}

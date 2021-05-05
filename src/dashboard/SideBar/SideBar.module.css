@@ -1,0 +1,20 @@
+.sidebarMenu {
+    background:#2c333a;
+        /* background: #ff6593; */
+        /* background: #2e0e8c; */
+    grid-area: sidebar;
+    overflow-y: auto;
+    padding: 20px;
+    transition: all 0.5s;
+    color: #fff;
+}
+
+.sidebarLink a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    
+}
+.sidebarLink {
+    padding: 20px 0;
+}

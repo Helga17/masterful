@@ -1,0 +1,82 @@
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0px;
+    padding: 0px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+     grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas: 
+    "sidebar nav nav nav"
+    "sidebar main main main"
+}
+
+div .container {
+    background:#f3f7ff;
+    grid-area: main;
+    overflow-y: auto;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap'); */
+
+
+table {
+    margin: 0 30px;
+    display: table;
+    width: 95%;
+    background: #fff;
+    border: 1px solid rgb(224, 224, 224);
+    border-spacing: 0px;
+}
+
+thead {
+    display: table-header-group;
+}
+
+tr {
+    display: table-row;
+    vertical-align: middle;
+}
+
+th {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.30px;
+    display: table-cell;
+    vertical-align: inherit;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    text-align: left;
+    padding: 16px;
+    color: rgb(23, 43, 77);
+}
+
+tbody {
+    display: table-row-group;
+}
+
+td {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: 0.30px;
+    display: table-cell;
+    vertical-align: inherit;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    text-align: left;
+    padding: 16px;
+    color: rgb(23, 43, 77);
+}
+

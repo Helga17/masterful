@@ -1,0 +1,30 @@
+.col {
+    width: 27%;
+}
+
+.title {
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    /* color: #fff; */
+    text-transform: uppercase;
+}
+
+.instagram{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item{
+    width: 33%;
+}
+
+.item img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: 105px;
+    height: 105px;
+    padding-bottom: 6px;
+}

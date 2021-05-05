@@ -1,0 +1,18 @@
+.col {
+    width: 30%;
+}
+
+.logo {
+    margin-bottom: 30px;
+    /* color: #fff; */
+    font-size: 36px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+}
+
+.text{
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.5;
+    /* color: #fff; */
+}

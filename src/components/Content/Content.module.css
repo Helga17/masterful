@@ -1,0 +1,46 @@
+.container {
+    width: 100%;
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.workshop {
+    display: flex;
+    margin: 100px auto;
+}
+
+.item {
+    flex: 50%;
+}
+
+.img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.img img{
+    width: 480px;
+    height: 600;
+    float: right;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    display: block;
+    color: #26264b;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+.desc {
+    padding-bottom: 20px;
+    font-size: 18px;
+    line-height: 2.1;
+}

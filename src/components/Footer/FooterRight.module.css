@@ -1,0 +1,25 @@
+.col {
+    width: 29%;
+}
+
+.title {
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    /* color: #fff; */
+    text-transform: uppercase;
+}
+
+.contact {
+    /* color: #fff; */
+    font-size: 18px;
+    line-height: 1.5;
+} 
+
+span.number {
+    font-size: 22px;
+}
+
+.phone {
+    font-family: 'Prata', serif;
+}

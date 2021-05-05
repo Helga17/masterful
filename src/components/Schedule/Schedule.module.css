@@ -1,0 +1,120 @@
+.section {
+    padding: 100px 0;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    display: block;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.inner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    /* background: #f8f9fa; */
+    background: #f3f7fd;
+    position: relative;
+    cursor: pointer;
+}
+
+.inner a {
+    text-decoration: none;
+    width: 238px;
+    text-align: center;
+}
+
+.inside {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eaeaea;;
+    padding-bottom: 40px;
+}
+
+.item {
+    margin: 0 auto;
+    width: 92%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    line-height: 1.75;
+}
+
+.time p {
+    font-size: 22px;
+    
+}
+
+.info {
+    width: 50%;
+}
+
+.sect {
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.info .description {
+    font-size: 15px;
+    color: #1d1d1d;
+    line-height: 1;
+}
+
+.prices p {
+    font-size: 17px;
+    padding-bottom: 7px;
+}
+
+.date {
+    width: 100%;
+    padding: 28px 40px;
+    font-size: 22px;
+    font-weight: 500;
+    border-right: 4px solid #fff;
+}
+
+.date:last-child {
+    border-right: none;
+}
+
+.inner span {
+    font-size: 36px;
+}
+
+.content {
+    margin-top: 80px;
+}
+
+.join {
+    margin-top: 10px;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    background-color: #ff6593;
+    /* background: #6b76ff; */
+    /* background: #017cfe; */
+    color: #fff;
+}
+
+.join:hover {
+    background: #ff6561;
+}
