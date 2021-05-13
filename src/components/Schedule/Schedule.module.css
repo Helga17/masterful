@@ -118,3 +118,21 @@ p {
 .join:hover {
     background: #ff6561;
 }
+
+.join:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.left {
+    margin-top: 10px;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    background-color: #af1d8b;
+    /* background: #6b76ff; */
+    /* background: #017cfe; */
+    color: #fff;
+}

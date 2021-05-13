@@ -6,16 +6,34 @@ import moment from 'moment';
 const Ticket = (props) => {
     let [schedules, setSchedules] = useState([]);
 
+    const token = localStorage.getItem('passport') || '';
+
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    }
+
     useEffect(() => {
-        axios.get('http://127.0.0.1:8001/api/schedules')
+        axios.get('http://127.0.0.1:8001/api/user-schedules', config)
             .then(result => {
                 const schedulesData = result.data;
                 setSchedules(schedulesData);
             });
     }, []);
 
-    let scheduleElements = schedules ? schedules.map(schedule => {
+    const handleRemoveJoin = (id) => {
+        axios.post(`http://127.0.0.1:8001/api/schedules/${id}/unassign`, {}, config)
+            .then(result => {
+                const clonedSchedules = [...schedules];
+                let scheduleIndex = clonedSchedules.findIndex(schedule => schedule.id === id);
 
+                clonedSchedules.splice(scheduleIndex, 1);
+
+                setSchedules(clonedSchedules);
+            });
+    }
+
+    let scheduleElements = schedules.length > 0 ? schedules.map(schedule => {
+        console.log(schedules)
         return (
             <div key={schedule.id} className={classes.item}>
                 <div className={classes.header}>
@@ -47,17 +65,15 @@ const Ticket = (props) => {
                 </div>
 
                 <div className={classes.cancel}>
-                    <button className={classes.btn}>Відміна</button>
+                    <button className={classes.btn} onClick={() => handleRemoveJoin(schedule.id)}>Відміна</button>
                 </div>
             </div>
         );
-    }) : [];
+    }) : <div className={classes.notif}><img src="/empty.png" alt=""/> <p>У вас зараз немає сеансів майстер класів</p></div>;
 
     return (
         <div className={classes.cards}>
-            {/* <div> */}
             {scheduleElements}
-            {/* </div> */}
         </div>
     );
 }

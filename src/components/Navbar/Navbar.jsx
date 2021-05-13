@@ -7,7 +7,7 @@ const Navbar = (props) => {
     const logout = () => {
         props.setUser(null);
         localStorage.removeItem('passport');
-        localStorage.removeItem('user');
+        sessionStorage.removeItem('user');
     }
 
     return (
@@ -19,10 +19,8 @@ const Navbar = (props) => {
                         <NavLink to="/blog" className={classes.item}>Блог</NavLink>
                     </div>
 
-
-
                     <div className={classes.dropdown}>
-                        <span>{props.currentUser && <p>{props.currentUser.name}</p>}{<p>Go</p>}</span>
+                        <span>{props.currentUser ? <p>{props.currentUser.name}</p> : <p>Увійти до системи</p>}</span>
                         <div className={classes.dropdownContent}>
                             <div>{props.currentUser && <NavLink to="/user" className={classes.item}>Записи</NavLink>} </div>
                             <div>{props.currentUser && <NavLink to="/" className={classes.item} onClick={logout}>Вийти</NavLink>} </div>

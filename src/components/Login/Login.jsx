@@ -6,7 +6,6 @@ import { useToasts } from 'react-toast-notifications';
 
 const Login = (props) => {
 
-
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const { addToast } = useToasts();
@@ -63,7 +62,7 @@ const Login = (props) => {
         axios.post('http://127.0.0.1:8001/api/login', { email: email, password: password })
             .then(result => {
                 if (result.data.message) {
-                    addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 2500 });
+                    addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 6000 });
                 }
                 console.log(result, 'login');
                 props.setUser(result.data.user);

@@ -70,9 +70,9 @@ const CreateSchedule = () => {
             }
         })
             .then(result => {
-                history.push("/dashboard/schedules", { 'message': { 'appearance': 'success', 'text': 'Дані успішно добавленi' } });
+                history.push("/dashboard/schedules", { 'message': { 'appearance': 'success', 'text': 'Дані успішно додані' } });
             }).catch((error) => {
-                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 3000 });
+                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 6000 });
             });
     }
 

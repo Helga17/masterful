@@ -18,7 +18,7 @@ const Masters = () => {
 
 
         if (history.location.state && history.location.state.message) {
-            addToast(history.location.state.message.text, { appearance: history.location.state.message.appearance, autoDismiss: true, autoDismissTimeout: 3000 });
+            addToast(history.location.state.message.text, { appearance: history.location.state.message.appearance, autoDismiss: true, autoDismissTimeout: 6000 });
             history.replace({});
         }
     }, [addToast, history]);
@@ -47,9 +47,9 @@ const Masters = () => {
             .then(result => {
                 let findMasterId = masters.filter((master) => master.id !== id);
                 setMasters(findMasterId);
-                addToast('Дані успішно видалені', { appearance: 'success', autoDismiss: true, autoDismissTimeout: 3000 });
+                addToast('Дані успішно видалені', { appearance: 'success', autoDismiss: true, autoDismissTimeout: 6000 });
             }).catch((error) => {
-                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 3000 });
+                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 6000 });
             });
     }
 
@@ -69,7 +69,7 @@ const Masters = () => {
                         <th>Ім'я</th>
                         <th>Різновид діяльності</th>
                         <th>Зображення</th>
-                        <th>Оновлення</th>
+                        <th>Зміни</th>
                     </tr>
                 </thead>
                 <tbody>

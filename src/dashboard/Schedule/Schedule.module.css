@@ -8,17 +8,7 @@
   left: 30px;
   font-size: 25px;
   font-weight: 600;
-  /* color: #aaaffa; */
-  color: darkslateblue;
-}
-
-table {
-  margin: 0 30px;
-  display: table;
-  width: 95%;
-  background: #fff;
-  border: 1px solid rgb(224, 224, 224);
-  border-spacing: 0px;
+  color:#2b3439;
 }
 
 .pos {

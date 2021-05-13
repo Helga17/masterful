@@ -72,9 +72,9 @@ const CreatePost = () => {
             }
         })
             .then(result => {
-                history.push("/dashboard/posts", { 'message': { 'appearance': 'success', 'text': 'Дані успішно добавленi' } });
+                history.push("/dashboard/posts", { 'message': { 'appearance': 'success', 'text': 'Дані успішно додані' } });
             }).catch((error) => {
-                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 2500 });
+                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 6000 });
             });
     }
 
@@ -109,7 +109,7 @@ const CreatePost = () => {
                     <p className={classes.label}>Назва</p>
                     <div className={classes.col}>
                         <input type="text" style={errors.title ? {borderColor: "red"} : {}} name="title" onChange={(event) => handleTitleChange(event)} required="required" placeholder="Enter the title" />
-                        {errors.title && <p>Errors</p>}
+                        {errors.title && <p>Поля не заповнені</p>}
                     </div>
                 </div>
                 <div className={classes.formGroup}>
@@ -122,14 +122,14 @@ const CreatePost = () => {
                     <p className={classes.label}>Текст</p>
                     <div className={classes.col}>
                         <textarea name="text" style={errors.text ? {borderColor: "red"} : {}} id="" cols="30" rows="10" onChange={(event) => handleTextChange(event)} placeholder="Enter the text for post"></textarea>
-                        {errors.text && <p>Errors</p>}
+                        {errors.text &&  <p>Поля не заповнені</p>}
                     </div>
                 </div>
                 <div className={classes.formGroup}>
                     <p className={classes.label}>Зображення</p>
                     <div className={classes.col}>
                         <input type="file" style={errors.image ? {borderColor: "red"} : {}} onChange={(event) => uploadFile(event)} name="image" accept="image/png, image/jpeg, image/jpg" />
-                        {errors.image && <p>Errors</p>}
+                        {errors.image &&  <p>Поля не заповнені</p>}
                     </div>
                 </div>
                 <div className={classes.formGroup}>

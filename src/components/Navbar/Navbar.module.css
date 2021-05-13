@@ -9,6 +9,10 @@
     
 }
 
+.navbar > .container {
+    box-shadow: 0 4px 2px -2px rgb(0 0 0 / 20%);
+}
+
 .inner {
     margin: 0 auto;
     padding: 20px 6px;

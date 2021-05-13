@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classes from './Register.module.css';
 import axios from 'axios';
+import { useToasts } from 'react-toast-notifications';
 
 const Register = (props) => {
 
@@ -10,6 +11,7 @@ const Register = (props) => {
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
     const [errors, setErrors] = useState([]);
+    const { addToast } = useToasts();
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -26,7 +28,7 @@ const Register = (props) => {
         const isValidEmail = validateEmail(event.target.value);
 
         if (!isValidEmail && event.target.value.length > 0) {
-            errors['email'] = 'Not valid email.';
+            errors['email'] = 'Некоректне введення';
         } else {
             errors['email'] = '';
         }
@@ -40,29 +42,28 @@ const Register = (props) => {
     }
 
    const onSubmit = (event) => {
-    // event.preventDefault();
 
     axios.post('http://127.0.0.1:8001/api/register', { name: username, email: email, password: password, password_confirmation: confirmPassword })
         .then(result => {
             if (result.data.user) {
                 props.setUser(result.data.user)
                 localStorage.setItem('passport', result.data.access_token);
+                
+                window.location.href = '/';
+                addToast('Успішна реєстрація', { appearance: 'success', autoDismiss: true, autoDismissTimeout: 6000 });
             }
             if (result.error) {
-                errors['email'] = 'not';
-                // result.error.email
+                errors['email'] = 'Некоректно';
             }
-
-            console.log(result);
-            // props.setUser(result.data.user);
+            addToast('Виникла помилка', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 6000 });
             localStorage.setItem('passport', result.data.access_token);
-            // window.location.href = '/';
+            
         });
    }
 
    const validatePassword = () => {
     if (confirmPassword !== password) {
-        errors['confirmPassword'] = 'not valid passw';
+        errors['confirmPassword'] = 'Невідповідність паролів';
     } else {
         errors['confirmPassword'] = '';
     }
@@ -93,6 +94,7 @@ const Register = (props) => {
                         <div className={classes.inputBox}>
                             <span>Повторний пароль</span>
                             <input type="password"  name="password_confirmation" onChange={(event) => handleConfirmPasswordChange(event)} onBlur={validatePassword}/>
+                            <div><p>{errors['confirmPassword']}</p></div>
                         </div>
                         <div className={classes.inputBox}>
                             <input value="Далі" type="submit" onClick={(event) => onSubmit(event)}/>

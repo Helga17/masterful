@@ -37,6 +37,7 @@ const Team = (props) => {
 
                     {masterElements}
 
+
                 </div>
             </div>
         </section>

@@ -11,7 +11,7 @@ const Schedule = () => {
     let [schedules, setSchedules] = useState([]);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8001/api/dashboard/schedules')
+        axios.get('http://127.0.0.1:8001/api/schedules')
             .then(result => {
                 const schedulesData = result.data;
                 setSchedules(schedulesData);
@@ -30,8 +30,8 @@ const Schedule = () => {
                 <td>{schedule.description}</td>
                 <td className={classes.pos}>{schedule.price}</td>
                 <td className={classes.pos}>{schedule.max_count_members}</td>
-                <td className={classes.pos}>{moment.utc(schedule.start_date).format('LT')}</td>
-                <td className={classes.pos}>{moment.utc(schedule.end_date).format('LT')}</td>
+                <td className={classes.pos}>{moment.utc(schedule.start_date).format('LT')} {moment.utc(schedule.start_date).format('L')}</td>
+                <td className={classes.pos}>{moment.utc(schedule.end_date).format('LT')} {moment.utc(schedule.end_date).format('L')}</td>
                 <td className={classes.update}>
                     <button className={classes.btn}>
                         <img src="https://img.icons8.com/cotton/2x/edit.png" alt="true" />
@@ -44,14 +44,16 @@ const Schedule = () => {
         );
     })
 
+
+        scheduleElements.sort();
     function handleRemove(id) {
-        axios.delete('http://127.0.0.1:8001/api/dashboard/schedule/' + id)
+        axios.delete('http://127.0.0.1:8001/api/schedule/' + id)
             .then(result => {
                 let findMasterId = schedules.filter((schedule) => schedule.id !== id);
                 setSchedules(findMasterId);
-                addToast('Дані успішно видалені', { appearance: 'success', autoDismiss: true, autoDismissTimeout: 3000 });
+                addToast('Дані успішно видалені', { appearance: 'success', autoDismiss: true, autoDismissTimeout: 6000 });
             }).catch((error) => {
-                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 2500 });
+                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 6000 });
             });
     }
     
@@ -73,7 +75,7 @@ const Schedule = () => {
                         <th>Учасники</th>
                         <th>Початок</th>
                         <th>Кінець</th>
-                        <th>Оновлення</th>
+                        <th>Зміни</th>
                     </tr>
                 </thead>
                 <tbody>

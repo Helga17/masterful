@@ -1,15 +1,14 @@
 import React from 'react';
 import Ticket from '../Ticket/Ticket';
-import classes from './TestUser.module.css';
+import classes from './UserProfile.module.css';
 
 
-const TestUser = (props) => {
+const UserProfile = (props) => {
     
-
     return(
         <section className={classes.section}>
             <div className={classes.container}>
-                <p>Квитки на майстер-класи</p>
+                <p className={classes.title}>Квитки на майстер-класи</p>
                 <Ticket />
             </div> 
         </section>
@@ -17,4 +16,4 @@ const TestUser = (props) => {
     );
 }
 
-export default TestUser;
+export default UserProfile;

@@ -5,7 +5,7 @@ import Intro from './components/Intro/Intro';
 import Workshop from './components/Workshop/Workshop';
 import Blog from './components/Blog/Blog';
 import Footer from './components/Footer/Footer'
-import TestUser from './components/TestUser/TestUser';
+import UserProfile from './components/UserProfile/UserProfile';
 import Register from './components/Register/Register';
 import Main from './dashboard/Main/Main';
 import Posts from './dashboard/Posts/Posts';
@@ -19,11 +19,14 @@ import CreateSchedule from './dashboard/Schedule/CreateSchedule';
 import Login from './components/Login/Login';
 import CreateMaster from './dashboard/Masters/CreateMaster';
 
+import BetaAccess from './components/BetaAccess/BetaAccess';
+import Beta from './components/Beta/Beta';
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+  const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   useEffect(() => {
     const token = localStorage.getItem('passport') || '';
@@ -36,10 +39,10 @@ function App() {
       axios.get('http://127.0.0.1:8001/api/user', config)
         .then(result => {
           if (result.data) {
-            localStorage.setItem('user', JSON.stringify(result.data));
+            sessionStorage.setItem('user', JSON.stringify(result.data));
             setUser(result.data);
           } else {
-            localStorage.removeItem('user');
+            sessionStorage.removeItem('user');
           }
         });
     }
@@ -50,7 +53,9 @@ function App() {
     return (
       <Route {...rest} render={props => (
         <Layout {...props}>
-          <Component {...props} {...rest} />
+          <ToastProvider>
+            <Component {...props} {...rest} />
+          </ToastProvider>
         </Layout>
       )} />
     )
@@ -61,7 +66,6 @@ function App() {
       <ToastProvider>
         {props.children}
       </ToastProvider>
-
     </div>
   )
 
@@ -74,13 +78,13 @@ function App() {
           {props.children}
         </ToastProvider>
       </div>
-    ) : <Redirect to={"/"} />
+    ) : <Redirect to="/"/>
   }
   
 
   const MainLayout = (props) => {
     if (props.children.props.isSecure && !user) {
-      return <Redirect to="/" />
+      return <Redirect to="/"/>
     }
 
     return (
@@ -97,8 +101,10 @@ function App() {
   return (
 
     <BrowserRouter>
-
+  
       <Switch>
+        <AppRoute path="/betaaccess" layout={AuthLayout} component={BetaAccess} />
+        <AppRoute path="/beta" layout={AuthLayout} component={Beta} />
 
         <AppRoute path="/register" layout={AuthLayout} component={Register} setUser={setUser} />
         <AppRoute path="/login" layout={AuthLayout} component={Login} setUser={setUser} />
@@ -107,7 +113,7 @@ function App() {
 
         <AppRoute path="/workshop" layout={MainLayout} component={Workshop} />
         <AppRoute path="/blog" layout={MainLayout} component={Blog} />
-        <AppRoute path="/user" layout={MainLayout} component={TestUser} isSecure={true}/>
+        <AppRoute path="/user" layout={MainLayout} component={UserProfile} isSecure={true}/>
 
         <AppRoute exact path="/dashboard" layout={DashboardLayout} component={Main} />
         <AppRoute path="/dashboard/posts" layout={DashboardLayout} component={Posts} />
@@ -118,7 +124,7 @@ function App() {
         <AppRoute path="/dashboard/masters" layout={DashboardLayout} component={Masters} />
         <AppRoute path="/dashboard/schedules" layout={DashboardLayout} component={Schedule} />
 
-      </Switch >
+      </Switch>
     </BrowserRouter>
   )
 }

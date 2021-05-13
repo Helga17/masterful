@@ -1,5 +1,5 @@
 .section{
-    margin: 50px 0;
+    margin: 20px 0;
 }
 
 .container {
@@ -7,6 +7,18 @@
     max-width: 1230px;
     padding: 0 15px;
     margin: 0 auto;
+}
+
+ p.title {
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: 500;
+    display: block;
+    color: #26264b;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #dfdfdf;
 }
 
 .avatar img {

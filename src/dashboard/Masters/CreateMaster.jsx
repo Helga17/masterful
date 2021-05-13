@@ -67,9 +67,9 @@ const CreateMaster = () => {
             }
         })
             .then(result => {
-                history.push("/dashboard/masters", { 'message': { 'appearance': 'success', 'text': 'Дані успішно добавленi' } });
+                history.push("/dashboard/masters", { 'message': { 'appearance': 'success', 'text': 'Дані успішно додані' } });
             }).catch((error) => {
-                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 3000 });
+                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 6000 });
             });
     }
 

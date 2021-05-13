@@ -19,7 +19,7 @@ const Posts = (props) => {
             });
 
         if (history.location.state && history.location.state.message) {
-            addToast(history.location.state.message.text, { appearance: history.location.state.message.appearance, autoDismiss: true, autoDismissTimeout: 3000 });
+            addToast(history.location.state.message.text, { appearance: history.location.state.message.appearance, autoDismiss: true, autoDismissTimeout: 6000 });
             history.replace({});
         }
     }, [addToast, history]);
@@ -52,9 +52,9 @@ const Posts = (props) => {
             .then(result => {
                 let findPostId = posts.filter((post) => post.id !== id);
                 setPosts(findPostId);
-                addToast('Дані успішно видалені', { appearance: 'success', autoDismiss: true, autoDismissTimeout: 3000 });
+                addToast('Дані успішно видалені', { appearance: 'success', autoDismiss: true, autoDismissTimeout: 6000 });
             }).catch((error) => {
-                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 2500 });
+                addToast('Щось пішло не так', { appearance: 'error', autoDismiss: true, autoDismissTimeout: 6000 });
             });
 
     }
@@ -72,11 +72,11 @@ const Posts = (props) => {
             <table>
                 <thead>
                     <tr>
-                        <th className={classes.col1}>Title</th>
-                        <th className={classes.col2}>Text</th>
-                        <th className={classes.col3}>Created</th>
-                        <th className={classes.col4}>Image</th>
-                        <th className={classes.col5}>Update</th>
+                        <th className={classes.col1}>Назва</th>
+                        <th className={classes.col2}>Опис посту</th>
+                        <th className={classes.col3}>Дата проведення</th>
+                        <th className={classes.col4}>Зображення</th>
+                        <th className={classes.col5}>Зміни</th>
                     </tr>
                 </thead>
                 <tbody>

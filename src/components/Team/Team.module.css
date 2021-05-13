@@ -26,10 +26,11 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
-    position: relative;
+ 
 }
 
 .item {
+    position: relative;
     flex: 50%;
 }
 
@@ -47,27 +48,29 @@
 }
 
 .info {
+    display: block;
+    width: 100%;
     font-family: 'Playfair Display', serif;
     line-height: 1.5;
     color: #fff;
     margin-top: 10px;
     position: absolute;
-    bottom: 10px;
-    margin-left: 3px;
+    bottom: 4px;
+    
 }
 
-.info:before {
-    width: 100%;
-    background: #171822;
-    opacity: 0.5;
+.info:hover {
+    background-color: rgba(56, 58, 49, 0.5);
 }
 
 .name {
+    padding-left: 15px;
     font-size: 24px;
     font-weight: 500;
 }
 
 .prof {
+    padding-left: 15px;
     font-size: 20px;
     font-weight: 500;
 }
